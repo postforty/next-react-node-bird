@@ -9,3 +9,8 @@
     - Node 버전(Node.js v18.12.1)과 Next의 버전 호완성 문제로 보임
     - npm i next (Next.js 9버전 삭제 후 13버전 설치)
 - npm i prop-types (타입스크립트를 사용하고 있지 않아 대신하기 위해 설치)
+- 코드 깔끔하게 관리(개발 모드 한정: -D)
+  - npm i eslint -D
+  - npm i eslint-plugin-import -D
+  - npm i eslint-plugin-react -D
+  - npm i eslint-plugin-react-hooks -D
