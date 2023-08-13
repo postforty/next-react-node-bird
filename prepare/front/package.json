@@ -10,8 +10,11 @@
   "author": "Dandy",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^5.2.5",
+    "antd": "^5.8.3",
     "next": "^13.4.13",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "eslint": "^8.47.0",

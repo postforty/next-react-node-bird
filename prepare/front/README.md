@@ -14,3 +14,5 @@
   - npm i eslint-plugin-import -D
   - npm i eslint-plugin-react -D
   - npm i eslint-plugin-react-hooks -D
+- CSS 프레임워크
+  - npm i antd styled-components @ant-design/icons (andt, styled-components 사용)
