@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "next",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dandy",
   "license": "ISC",
   "dependencies": {
-    "next": "^9.5.5"
+    "next": "^13.4.13",
+    "prop-types": "^15.8.1"
   }
 }
