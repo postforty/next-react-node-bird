@@ -10,7 +10,7 @@ const NodeBird = ({ Component }) => {
         <meta charSet="utf-8" />
         <title>NodeBird</title>
       </Head>
-      <div>공통 메뉴</div>
+      {/* <div>공통 메뉴</div> */}
       <Component />
     </>
   );
