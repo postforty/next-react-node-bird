@@ -7,7 +7,11 @@ const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const LoginForm = () => {
+// const FormWrapper = styled(Form)`
+//   padding: 10px;
+// `;
+
+const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,8 +27,17 @@ const LoginForm = () => {
   //   ! useMemo()는 값을 캐싱함. 스타일 값을 캐싱하여 사용하면 성능 최적화 가능
   //   const style = useMemo(() => ({ marginTop: 10 }), []);
 
+  const onSubmitForm = useCallback(
+    (e) => {
+      // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
+      console.log(id, password);
+      setIsLoggedIn(true);
+    },
+    [id, password]
+  );
+
   return (
-    <Form>
+    <Form onFinish={onSubmitForm}>
       <div>
         <label htmlFor="user-id">아이디</label>
         <br />

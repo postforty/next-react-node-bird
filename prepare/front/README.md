@@ -16,3 +16,17 @@
   - npm i eslint-plugin-react-hooks -D
 - CSS 프레임워크
   - npm i antd styled-components @ant-design/icons (andt, styled-components 사용)
+
+## 기억할 것!
+
+### 섹션 1. antd 사용해 SNS 화면 만들기
+
+#### 리렌더링 이해하기
+
+- useCallBack(): 함수 캐싱
+  - onChange에 적용할 함수 정의시 사용하여 성능 최적화
+- useMemo(): 값을 캐싱
+  - 스타일 값을 캐싱하여 성능 최적화
+  - <div style={{ marginTop: 10 }}> 처럼 style 내에 객체를 사용할 수 있지만 {} === {}는 false이기 때문에 리렌더링시 동일한 값임에도 불구하고 다시 그리게 됨
+  - 리액트는 이전 컴포넌트의 버츄어돔과 새로운 컴포넌트의 버츄어돔을 비교하여 변경된 것을 리렌더링하는데 style 객체의 경우 값의 변경 없이 동일한데 불필요한 리렌더링을 진행하게됨
+  - useMemo(), styled-components 등을 이용해 이 문제를 해결(성능 최적화)할 수 있음
