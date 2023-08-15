@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { Menu, Input, Row, Col } from "antd";
+import styled from "styled-components";
+
+import UserProfile from "../components/UserProfile";
+import LoginForm from "../components/LoginForm";
+
+const SearchInput = styled(Input.Search)`
+  vertical-align: middle;
+`;
 
 const AppLayout = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div>
       <Menu mode="horizontal">
@@ -14,7 +23,7 @@ const AppLayout = ({ children }) => {
           <Link href="/profile">프로필</Link>
         </Menu.Item>
         <Menu.Item>
-          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
+          <SearchInput enterButton />
         </Menu.Item>
         <Menu.Item>
           <Link href="/signup">회원가입</Link>
@@ -23,7 +32,7 @@ const AppLayout = ({ children }) => {
       {/* 거터: 컬럼 사이의 간격 */}
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          왼쪽
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
           {children}
@@ -50,5 +59,3 @@ AppLayout.propTypes = {
 };
 
 export default AppLayout;
-
-// https://www.inflearn.com/course/lecture?courseSlug=%EB%85%B8%EB%93%9C%EB%B2%84%EB%93%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%A6%AC%EB%89%B4%EC%96%BC&unitId=48793
