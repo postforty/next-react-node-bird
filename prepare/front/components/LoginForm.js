@@ -2,6 +2,8 @@ import React, { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import useInput from "../hooks/useInput";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
@@ -12,29 +14,29 @@ const FormWrapper = styled(Form)`
 `;
 
 const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+  const [id, onChangeId] = useInput("");
+  const [password, onChangePassword] = useInput("");
 
-  // ! 컴포넌트에 props로 넘기는 함수에는 useCallback(함수 캐싱)을 써야 최적화가 된다!
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
+  //   const [id, setId] = useState("");
+  //   const [password, setPassword] = useState("");
 
-  const onChangePassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
+  //   // ! 컴포넌트에 props로 넘기는 함수에는 useCallback(함수 캐싱)을 써야 최적화가 된다!
+  //   const onChangeId = useCallback((e) => {
+  //     setId(e.target.value);
+  //   }, []);
+
+  //   const onChangePassword = useCallback((e) => {
+  //     setPassword(e.target.value);
+  //   }, []);
 
   //   ! useMemo()는 값을 캐싱함. 스타일 값을 캐싱하여 사용하면 성능 최적화 가능
   //   const style = useMemo(() => ({ marginTop: 10 }), []);
 
-  const onSubmitForm = useCallback(
-    (e) => {
-      // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
-      console.log(id, password);
-      setIsLoggedIn(true);
-    },
-    [id, password]
-  );
+  const onSubmitForm = useCallback(() => {
+    // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
+    console.log(id, password);
+    setIsLoggedIn(true);
+  }, [id, password]);
 
   return (
     <FormWrapper onFinish={onSubmitForm}>
@@ -67,6 +69,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </ButtonWrapper>
     </FormWrapper>
   );
+};
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
