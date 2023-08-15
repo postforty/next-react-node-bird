@@ -42,11 +42,11 @@ const AppLayout = ({ children }) => {
           {children}
         </Col>
         <Col xs={24} md={6}>
-          {/* rel="noreferrer noopenr" : 보안 위협 방지 */}
+          {/* rel="noreferrer noopener" : 새창을 누가 열었는지에 대한 정보를 제공하지 않음. 보안 위협 방지 */}
           <a
             href="https://postforty.tistory.com"
             target="_blank"
-            rel="noreferrer noopenr"
+            rel="noreferrer noopener"
           >
             Go to Blog!
           </a>
