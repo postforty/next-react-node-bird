@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 // import "antd/dist/antd.css";
 
+import wrapper from "next-redux-wrapper";
+
 const NodeBird = ({ Component }) => {
   return (
     <>
@@ -20,4 +22,4 @@ NodeBird.proptypes = {
   Component: PropTypes.elementType.isRequired,
 };
 
-export default NodeBird;
+export default wrapper.withRedux(NodeBird);
