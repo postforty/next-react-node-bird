@@ -17,6 +17,14 @@
 - CSS 프레임워크
   - npm i antd styled-components @ant-design/icons (andt, styled-components 사용)
 
+## 환경 설정(리덕스)
+
+- 중앙 데이터 저장소
+- 리덕스 특징: 코드량은 많지만 에러 추적이 쉬워 안정적임(Mobx는 코드량은 적지만 에러 추적 어려움)
+- 비동기를 다룰때는 실패에 대비해야(Context API: 요청, 성공, 실패를 직접 구현해줘야 함. 따라서 비동기 데이터를 다룰때는 Redux를 쓰는 것이 유리)
+- npm i next-redux-wrapper
+- npm i redux
+
 ## 기억할 것!
 
 ### 섹션 1. antd 사용해 SNS 화면 만들기
