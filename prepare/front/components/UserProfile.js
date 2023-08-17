@@ -1,9 +1,14 @@
 import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { logoutAction } from "../reducers";
 
-const UseProfile = ({ setIsLoggedIn }) => {
+// const UseProfile = ({ setIsLoggedIn }) => {
+const UseProfile = ({}) => {
+  const dispatch = useDispatch;
   const onLogOut = useCallback(() => {
-    setIsLoggedIn(false);
+    // setIsLoggedIn(false);
+    dispatch(logoutAction());
   }, []);
   return (
     <Card

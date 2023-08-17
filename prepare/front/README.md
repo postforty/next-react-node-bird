@@ -24,6 +24,7 @@
 - 비동기를 다룰때는 실패에 대비해야(Context API: 요청, 성공, 실패를 직접 구현해줘야 함. 따라서 비동기 데이터를 다룰때는 Redux를 쓰는 것이 유리)
 - npm i next-redux-wrapper
 - npm i redux
+- npm i react-redux
 
 ## 기억할 것!
 
