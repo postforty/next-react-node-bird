@@ -1,13 +1,13 @@
 // npm i next-redux-wrapper
 import { createWrapper } from "next-redux-wrapper";
-import { createStore } from "redux";
+import { legacy_createStore as createStore } from "redux";
 
-import reducer from "../reducers";
+import rootReducer from "../reducers";
 
 const configureStore = () => {
-  const store = createStore(reducer);
+  const store = createStore(rootReducer);
   store.dispatch({
-    type: "CHANGE_NICKNAME",
+    type: "LOG_IN",
     data: "Lee",
   });
   return store;

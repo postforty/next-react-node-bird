@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 // import "antd/dist/antd.css";
 
-import wrapper from "next-redux-wrapper";
+import wrapper from "../store/configureStore";
 
 const NodeBird = ({ Component }) => {
   return (
@@ -12,7 +12,6 @@ const NodeBird = ({ Component }) => {
         <meta charSet="utf-8" />
         <title>NodeBird</title>
       </Head>
-      {/* <div>공통 메뉴</div> */}
       <Component />
     </>
   );

@@ -29,14 +29,14 @@ export const logoutAction = () => {
 // };
 
 // 동적 액션 생성기(action creator)
-const changeNickname = (data) => {
-  return {
-    type: "CHANGE_NICKNAME",
-    data,
-  };
-};
-changeNickname("Lee");
-dispatch(changeNickname("Jung"));
+// const changeNickname = (data) => {
+//   return {
+//     type: "CHANGE_NICKNAME",
+//     data,
+//   };
+// };
+// changeNickname("Lee");
+// dispatch(changeNickname("Jung"));
 
 // (이전상태, 액션) => 다음상태
 const rootReducer = (state = initialState, action) => {
