@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { logoutAction } from "../reducers";
 
 // const UseProfile = ({ setIsLoggedIn }) => {
-const UseProfile = ({}) => {
-  const dispatch = useDispatch;
+const UseProfile = () => {
+  const dispatch = useDispatch();
   const onLogOut = useCallback(() => {
     // setIsLoggedIn(false);
     dispatch(logoutAction());
@@ -30,7 +30,7 @@ const UseProfile = ({}) => {
       <Card.Meta
         avatar={<Avatar>DD</Avatar>}
         title="Dandy"
-        description={<Button onClick={onLogOut}>로그아웃</Button>}
+        description={<Button onClick={() => onLogOut()}>로그아웃</Button>}
       />
     </Card>
   );

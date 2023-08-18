@@ -38,7 +38,6 @@ const LoginForm = () => {
 
   const onSubmitForm = useCallback(() => {
     // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
-    console.log(id, password);
     // setIsLoggedIn(true);
     dispatch(loginAction({ id, password }));
   }, [id, password]);
