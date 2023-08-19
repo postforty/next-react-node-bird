@@ -26,7 +26,7 @@
 - npm i redux
 - npm i react-redux
 - enhancer
-  - npm i redux-devtools-extension
+  - npm i redux-devtools-extension (composeWithDevTools로 크롬의 redux extension을 이용해 개발단계에서 상태 모니터링을 효과적으로 할 수 있음)
 
 ## 기억할 것!
 
