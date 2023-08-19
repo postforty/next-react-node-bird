@@ -25,6 +25,8 @@
 - npm i next-redux-wrapper
 - npm i redux
 - npm i react-redux
+- enhancer
+  - npm i redux-devtools-extension
 
 ## 기억할 것!
 

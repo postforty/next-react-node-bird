@@ -64,8 +64,8 @@ const rootReducer = (state = initialState, action) => {
           user: null,
         },
       };
-    // default:
-    //   return state;
+    default:
+      return state;
   }
 };
 

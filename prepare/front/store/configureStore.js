@@ -1,11 +1,21 @@
 // npm i next-redux-wrapper
 import { createWrapper } from "next-redux-wrapper";
-import { legacy_createStore as createStore } from "redux";
+import {
+  applyMiddleware,
+  compose,
+  legacy_createStore as createStore,
+} from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import rootReducer from "../reducers";
 
 const configureStore = () => {
-  const store = createStore(rootReducer);
+  const middlewares = [];
+  const enhancer =
+    process.env.NODE_ENV === "production"
+      ? compose(applyMiddleware(...middlewares))
+      : composeWithDevTools(applyMiddleware(...middlewares));
+  const store = createStore(rootReducer, enhancer);
   store.dispatch({
     type: "LOG_IN",
     data: "Lee",
