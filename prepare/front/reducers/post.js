@@ -8,7 +8,7 @@ export const initialState = {
         nickname: "dandy",
       },
       content: "첫 번째 게시글 #해시태그 #익스프레스",
-      Images: [],
+      Images: [true],
       Comments: [
         {
           User: {
