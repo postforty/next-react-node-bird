@@ -13,6 +13,8 @@ import PostImages from "./PostImages";
 const PostCard = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const [commentFormOpened, setCommentFormOpened] = useState(false);
+
+  // 토글
   const onToggleLike = useCallback(() => {
     setLiked((prev) => !prev);
   }, []);
