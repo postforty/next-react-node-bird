@@ -16,6 +16,8 @@
   - npm i eslint-plugin-react-hooks -D
 - CSS 프레임워크
   - npm i antd styled-components @ant-design/icons (andt, styled-components 사용)
+- 캐로셀
+  - npm i react-slick
 
 ## 환경 설정(리덕스)
 

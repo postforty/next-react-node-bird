@@ -1,10 +1,14 @@
 import { PlusOutlined } from "@ant-design/icons";
 import React, { useState, useCallback } from "react";
+import ImagesZoom from "./imagesZoom";
 
 const PostImages = ({ images }) => {
   const [showImagesZoom, setShowImagesZoom] = useState(false);
   const onZoom = useCallback(() => {
     setShowImagesZoom(true);
+  }, []);
+  const onClose = useCallback(() => {
+    setShowImagesZoom(false);
   }, []);
 
   if (images.length === 1) {
@@ -17,6 +21,7 @@ const PostImages = ({ images }) => {
           alt={images[0].src}
           onClick={onZoom}
         />
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClose} />}
       </>
     );
   }
@@ -38,6 +43,7 @@ const PostImages = ({ images }) => {
           alt={images[1].src}
           onClick={onZoom}
         />
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClose} />}
       </>
     );
   }
@@ -69,6 +75,7 @@ const PostImages = ({ images }) => {
           {images.length - 1}
           개의 사진 더보기
         </div>
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClose} />}
       </div>
     </>
   );
