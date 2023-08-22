@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import Slick from "react-slick";
-import { useState } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 // 태그드 템프릿 리터럴
 const Overlay = styled.div`
@@ -39,25 +39,42 @@ const Header = styled.header`
 
 const SlickWrapper = styled.div`
   height: calc(100% - 44px);
-  background: #090989;
+  background: #090909;
 `;
+
+// const CloseBtn = styled(CloseOutlined)`
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   padding: 15px;
+//   line-height: 14px;
+//   cursor: pointer;
+// `;
 
 const ImgWrapper = styled.div`
   padding: 32px;
-  text-algin: center;
+  text-align: center;
 
-  &img {
+  & img {
     margin: 0 auto;
     max-height: 750px;
   }
 `;
 
-const CloseBtn = styled.button``;
+const Global = createGlobalStyle`
+.slick-slide {
+    display: inline-block;
+}
+.ant-card-cover {
+    transform: none !important;
+}
+`;
 
 const ImagesZoom = ({ images, onClose }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   return (
     <Overlay>
+      <Global />
       <Header>
         <h1>상세 이미지</h1>
         <button onClick={onClose}>X</button>
@@ -66,17 +83,17 @@ const ImagesZoom = ({ images, onClose }) => {
         <div>
           <Slick
             initialSlide={0}
-            afterChange={(slide) => setCurrentSlide(slide)}
+            beforeChange={(slide, newSlide) => setCurrentSlide(newSlide)}
             infinite
             arrows={false}
             slidesToShow={1}
             slidesToScroll={1}
           >
-            {images.map((v) => {
+            {images.map((v) => (
               <ImgWrapper key={v.src}>
                 <img src={v.src} alt={v.src} />
-              </ImgWrapper>;
-            })}
+              </ImgWrapper>
+            ))}
           </Slick>
         </div>
       </SlickWrapper>
