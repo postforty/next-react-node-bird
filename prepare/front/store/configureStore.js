@@ -6,11 +6,20 @@ import {
   legacy_createStore as createStore,
 } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-
+import thunkMiddleware from "redux-thunk";
 import rootReducer from "../reducers";
 
+// 미들웨어는 3단 고차 함수로 구현
+const loggerMiddleware =
+  ({ dispatch, getState }) =>
+  (next) =>
+  (action) => {
+    console.log(action);
+    return next(action);
+  };
+
 const configureStore = () => {
-  const middlewares = [];
+  const middlewares = [thunkMiddleware, loggerMiddleware];
   const enhancer =
     process.env.NODE_ENV === "production"
       ? compose(applyMiddleware(...middlewares))

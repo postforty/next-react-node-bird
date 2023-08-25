@@ -30,6 +30,12 @@
 - enhancer
   - npm i redux-devtools-extension (composeWithDevTools로 크롬의 redux extension을 이용해 개발단계에서 상태 모니터링을 효과적으로 할 수 있음)
 
+## 환경 설정(redux-thunk)
+
+- 비동기 dispatch
+- 한번에 dispatch를 여러번 할 수 있게 해줌
+- npm install redux-thunk
+
 ## 기억할 것!
 
 ### 섹션 1. antd 사용해 SNS 화면 만들기
