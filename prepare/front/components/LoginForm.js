@@ -4,8 +4,8 @@ import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
-import { useDispatch } from "react-redux";
-import { loginAction } from "../reducers/user";
+import { useDispatch, useSelector } from "react-redux";
+import { loginRequestAction } from "../reducers/user";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
@@ -18,6 +18,7 @@ const FormWrapper = styled(Form)`
 // const LoginForm = ({ setIsLoggedIn }) => {
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const { isLoggingIn } = useSelector((state) => state.user);
   const [id, onChangeId] = useInput("");
   const [password, onChangePassword] = useInput("");
 
@@ -39,7 +40,7 @@ const LoginForm = () => {
   const onSubmitForm = useCallback(() => {
     // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
     // setIsLoggedIn(true);
-    dispatch(loginAction({ id, password }));
+    dispatch(loginRequestAction({ id, password }));
   }, [id, password]);
 
   return (
@@ -64,7 +65,7 @@ const LoginForm = () => {
       {/* styled-components를 이용해 이 문제를 해결할 수 있다. */}
       {/* 이전 컴포넌트의 버츄어돔과 새로운 컴포넌트의 버츄어돔을 비교하여 변경된 것을 리렌더링하는데 style 객체의 경우 동일한데 {} === {} 이기때문에 불필요한 리렌더링을 해버림. 이를 방지하기 위해 사용. */}
       <ButtonWrapper>
-        <Button type="primary" htmlType="submit" loading={false}>
+        <Button type="primary" htmlType="submit" loading={isLoggingIn}>
           로그인
         </Button>
         <Link href="/signup">
