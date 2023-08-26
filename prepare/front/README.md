@@ -35,6 +35,12 @@
 - 비동기 dispatch
 - 한번에 dispatch를 여러번 할 수 있게 해줌
 - npm install redux-thunk
+- npm rm redux-thunk (saga 사용을 위해 삭제)
+
+## 환경 설정(redux-thunk)
+
+- 제네레이트 이용, 무한의 이벤트 리스터와 같은 효과를 낼 수 있다!
+- npm i redux-saga
 
 ## 기억할 것!
 

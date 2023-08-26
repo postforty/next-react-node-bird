@@ -5,9 +5,12 @@ import {
   compose,
   legacy_createStore as createStore,
 } from "redux";
+
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunkMiddleware from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
+
 import rootReducer from "../reducers";
+import rootSaga from "../sagas";
 
 // 미들웨어는 3단 고차 함수로 구현
 const loggerMiddleware =
@@ -19,12 +22,14 @@ const loggerMiddleware =
   };
 
 const configureStore = () => {
-  const middlewares = [thunkMiddleware, loggerMiddleware];
+  const sagaMiddleware = createSagaMiddleware();
+  const middlewares = [sagaMiddleware, loggerMiddleware];
   const enhancer =
     process.env.NODE_ENV === "production"
       ? compose(applyMiddleware(...middlewares))
       : composeWithDevTools(applyMiddleware(...middlewares));
   const store = createStore(rootReducer, enhancer);
+  store.sagaTask = sagaMiddleware.run(rootSaga);
   store.dispatch({
     type: "LOG_IN",
     data: "Lee",
