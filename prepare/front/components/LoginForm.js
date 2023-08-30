@@ -18,8 +18,8 @@ const FormWrapper = styled(Form)`
 // const LoginForm = ({ setIsLoggedIn }) => {
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const { isLoggingIn } = useSelector((state) => state.user);
-  const [id, onChangeId] = useInput("");
+  const { logInLoading } = useSelector((state) => state.user);
+  const [email, onChangeEmail] = useInput("");
   const [password, onChangePassword] = useInput("");
 
   //   const [id, setId] = useState("");
@@ -40,15 +40,22 @@ const LoginForm = () => {
   const onSubmitForm = useCallback(() => {
     // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
     // setIsLoggedIn(true);
-    dispatch(loginRequestAction({ id, password }));
-  }, [id, password]);
+    console.log(email, password);
+    dispatch(loginRequestAction({ email, password }));
+  }, [email, password]);
 
   return (
     <FormWrapper onFinish={onSubmitForm}>
       <div>
-        <label htmlFor="user-id">아이디</label>
+        <label htmlFor="user-email">이메일</label>
         <br />
-        <Input name="user-id" value={id} onChange={onChangeId} required />
+        <Input
+          name="user-email"
+          type="email"
+          value={email}
+          onChange={onChangeEmail}
+          required
+        />
       </div>
       <div>
         <label htmlFor="user-password">비밀번호</label>
@@ -65,7 +72,7 @@ const LoginForm = () => {
       {/* styled-components를 이용해 이 문제를 해결할 수 있다. */}
       {/* 이전 컴포넌트의 버츄어돔과 새로운 컴포넌트의 버츄어돔을 비교하여 변경된 것을 리렌더링하는데 style 객체의 경우 동일한데 {} === {} 이기때문에 불필요한 리렌더링을 해버림. 이를 방지하기 위해 사용. */}
       <ButtonWrapper>
-        <Button type="primary" htmlType="submit" loading={isLoggingIn}>
+        <Button type="primary" htmlType="submit" loading={logInLoading}>
           로그인
         </Button>
         <Link href="/signup">

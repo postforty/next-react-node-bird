@@ -18,6 +18,10 @@
   - npm i antd styled-components @ant-design/icons (andt, styled-components 사용)
 - 캐로셀
   - npm i react-slick
+- eslint 추가
+  - npm i -D babel-eslint eslint-config-airbnb eslint-plugin-import
+  - npm i -D eslint-plugin-react-hooks
+  - npm i -D eslint-plugin-jsx-a11y (장애인을 위한 스크린리더가 읽을 수 있도록 하기 위함)
 
 ## 환경 설정(리덕스)
 
