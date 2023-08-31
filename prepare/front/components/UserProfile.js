@@ -1,18 +1,23 @@
 import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAction } from "../reducers/user";
+import { LOG_OUT_REQUEST } from "../reducers/user";
 
 // const UseProfile = ({ setIsLoggedIn }) => {
 const UseProfile = () => {
+  const { me, logOutLoading } = useSelector((state) => state.user);
+
+  console.log("me", me);
+
   const dispatch = useDispatch();
-  const { me, logOutLoading } = useSelector((state) => {
-    state.user;
-  });
   const onLogOut = useCallback(() => {
     // setIsLoggedIn(false);
-    dispatch(logoutRequestAction());
+    // dispatch(logoutRequestAction());
+    dispatch({
+      type: LOG_OUT_REQUEST,
+    });
   }, []);
+
   return (
     <Card
       actions={[
@@ -37,7 +42,7 @@ const UseProfile = () => {
         avatar={<Avatar>{me.nickname[0]}</Avatar>}
         title={me.nickname}
         description={
-          <Button onClick={() => onLogOut()} loading={isLoggingOut}>
+          <Button onClick={() => onLogOut()} loading={logOutLoading}>
             로그아웃
           </Button>
         }

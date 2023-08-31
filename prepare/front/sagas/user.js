@@ -1,4 +1,11 @@
-import { all, fork } from "redux-saga/effects";
+import {
+  all,
+  delay,
+  fork,
+  put,
+  takeEvery,
+  takeLatest,
+} from "redux-saga/effects";
 import {
   LOG_IN_FAILURE,
   LOG_IN_REQUEST,
@@ -9,7 +16,7 @@ import {
   SIGN_UP_FAILURE,
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
-} from "../../reducers/user";
+} from "../reducers/user";
 
 function logInAPI(data) {
   return axios.post("/api/login", data);

@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequestAction } from "../reducers/user";
+import { LOG_IN_REQUEST } from "../reducers/user";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
@@ -41,7 +42,11 @@ const LoginForm = () => {
     // e.preventDefault(); // antd에는 기본 적용되 있으므로 불필요
     // setIsLoggedIn(true);
     console.log(email, password);
-    dispatch(loginRequestAction({ email, password }));
+    // dispatch(loginRequestAction({ email, password }));
+    dispatch({
+      type: LOG_IN_REQUEST,
+      data: { email, password },
+    });
   }, [email, password]);
 
   return (

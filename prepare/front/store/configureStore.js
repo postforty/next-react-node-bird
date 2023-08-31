@@ -21,7 +21,8 @@ const loggerMiddleware =
     return next(action);
   };
 
-const configureStore = () => {
+const configureStore = (context) => {
+  console.log(context);
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware, loggerMiddleware];
   const enhancer =
@@ -30,10 +31,10 @@ const configureStore = () => {
       : composeWithDevTools(applyMiddleware(...middlewares));
   const store = createStore(rootReducer, enhancer);
   store.sagaTask = sagaMiddleware.run(rootSaga);
-  store.dispatch({
-    type: "LOG_IN",
-    data: "Lee",
-  });
+  // store.dispatch({
+  //   type: "LOG_IN",
+  //   data: "Lee",
+  // });
   return store;
 };
 

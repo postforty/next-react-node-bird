@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppLayout from "../components/AppLayout";
 import Head from "next/head";
 import NicknameEditForm from "../components/NicknameEditForm";
 import FollowList from "../components/FollowList";
 import { useSelector } from "react-redux";
+import { Router } from "next/router";
 
 const Profile = () => {
   const { me } = useSelector((state) => state.user);

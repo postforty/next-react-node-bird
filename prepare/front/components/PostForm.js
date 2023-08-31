@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../reducers/post";
+import { addPostDone } from "../reducers/post";
+import useInput from "../hooks/useInput";
 
 const PostForm = () => {
   const { imagePaths } = useSelector((state) => state.post);
